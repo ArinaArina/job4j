@@ -8,11 +8,19 @@ package ru.job4j.calculate;
 public class Calculate{
 	/**
 	 * main 
-	 * Выводить на консоль "Hello World"
+	 * Выводит на консоль "Hello World"
 	 * @param args - args
 	*/
 	public static void main(String[] args){
 		System.out.println("Hello World!");
 	}
-	
+	/**
+	 * echo
+	 * Возвращает строку "Echo, echo, echo: " с вашим именем
+	 * @param name - ваше имя
+	 * @return "Echo, echo, echo: " + ваше имя
+	*/
+	public String echo(String name){
+		return "Echo, echo, echo: " + name;
+	}
 }
