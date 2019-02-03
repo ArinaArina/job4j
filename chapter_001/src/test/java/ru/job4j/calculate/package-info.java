@@ -1,5 +1,5 @@
 /**
- * Package for calculate task.
+ * Package for calculate task
  *
  * @author Arina Vakurova (arch_romantic@mail.ru)
  * @version $Id$
