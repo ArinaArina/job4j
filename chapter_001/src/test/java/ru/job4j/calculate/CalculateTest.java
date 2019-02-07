@@ -5,15 +5,15 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * CalculateTest
- * Тестирует метод echo
- * @author Arina Vakurova
- * @version $Id$
- * @since 1.02.2019
+ * Test.
+ *
+ * @author Arina Vakurova.
+ * @version 1.
+ * @since 31.01.2019.
 */
 public class CalculateTest {
 	/**
-	 * Test echo
+	 * Test echo.
 	*/
 	@Test
 	public void whenTakeNameThenThreeEchoPlusName() {
