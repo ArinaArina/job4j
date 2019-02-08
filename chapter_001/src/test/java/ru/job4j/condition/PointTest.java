@@ -6,7 +6,7 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
 
 /**
- * Test
+ * Test.
  *
  * @author Arina Vakurova.
  * @since 8.02.2019.
