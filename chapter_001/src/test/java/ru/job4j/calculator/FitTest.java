@@ -19,8 +19,16 @@ public class FitTest {
     @Test
     public void manWeight() {
         Fit fit = new Fit();
-        double weight = fit.manWeight(180);
-        assertThat(weight, closeTo(92.0, 0.1));
+        assertThat(fit.manWeight(180), closeTo(92.0, 0.1));
+    }
+
+    /**
+     * Test manWeight.
+     */
+    @Test
+    public void manWeight2() {
+        Fit fit = new Fit();
+        assertThat(fit.manWeight(100), closeTo(-1.0, 0.1));
     }
 
     /**
@@ -29,7 +37,15 @@ public class FitTest {
     @Test
     public void womanWeight() {
         Fit fit = new Fit();
-        double weight = fit.womanWeight(170);
-        assertThat(weight, closeTo(69.0, 0.1));
+        assertThat(fit.womanWeight(170), closeTo(69.0, 0.1));
+    }
+
+    /**
+     * Test womanWeight.
+     */
+    @Test
+    public void womanWeight2() {
+        Fit fit = new Fit();
+        assertThat(fit.womanWeight(100), closeTo(-1.0, 0.1));
     }
 }
