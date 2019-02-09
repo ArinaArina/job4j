@@ -39,7 +39,7 @@ public class Triangle {
      * @param bc - длина от точки b до точки c.
      * @return true, если треугольник существует или false, если треугольника нет.
      */
-    private boolean exist(double ab, double ac, double bc) {
+    public boolean exist(double ab, double ac, double bc) {
         return ab + ac > bc && ab + bc > ac && bc + ab > ac;
     }
 
@@ -51,7 +51,11 @@ public class Triangle {
      * @return полупериметр.
      */
     public double period(double ab, double ac, double bc) {
-        return (ab + ac + bc) / 2;
+        double p = (ab + ac + bc) / 2;
+        if (p <= 0) {
+            p = -1.0;
+        }
+        return p;
     }
 
     /**
@@ -59,14 +63,10 @@ public class Triangle {
      * @return площадь треугольника, если треугольник существует или -1, если треугольника нет.
      */
     public double area() {
-        double result = -1.0;
         double ab = this.a.distanceTo(b);
         double ac = this.a.distanceTo(c);
         double bc = this.b.distanceTo(c);
         double p = this.period(ab, ac, bc);
-        if (this.exist(ab, ac, bc)) {
-            result = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
-        }
-        return result;
+        return ((this.exist(ab, ac, bc)) ? (Math.sqrt(p * (p - ab) * (p - ac) * (p - bc))) : -1.0);
     }
 }

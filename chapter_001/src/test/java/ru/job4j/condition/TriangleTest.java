@@ -1,8 +1,8 @@
 package ru.job4j.condition;
 
-import org.hamcrest.core.Is;
 import org.junit.Test;
 import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -22,8 +22,78 @@ public class TriangleTest {
         Point b = new Point(0, 2);
         Point c = new Point(2, 0);
         Triangle triangle = new Triangle(a, b, c);
-        double result = triangle.area();
-        double expected = 2D;
-        assertThat(result, closeTo(expected, 0.1));
+        assertThat(triangle.area(), closeTo(2.0, 0.1));
+    }
+
+    /**
+     * Test area.
+     */
+    @Test
+    public void whenPointsAreEqualThenTheTriangleDoesNotExist() {
+        Point a = new Point(1, 1);
+        Point b = new Point(2, 1);
+        Point c = new Point(2, 1);
+        Triangle triangle = new Triangle(a, b, c);
+        assertThat(triangle.area(), closeTo(-1.0, 0.1));
+    }
+
+    /**
+     * Test exist.
+     */
+    @Test
+    public void whenSideTriangleLessSumTwoOtherSides() {
+        Point a = new Point(1, 1);
+        Point b = new Point(2, 1);
+        Point c = new Point(2, 1);
+        Triangle triangle = new Triangle(a, b, c);
+        assertThat(triangle.exist(3, 5, 6), is(true));
+    }
+
+    /**
+     * Test exist.
+     */
+    @Test
+    public void whenSideTriangleMoreSumTwoOtherSides() {
+        Point a = new Point(1, 1);
+        Point b = new Point(2, 1);
+        Point c = new Point(2, 1);
+        Triangle triangle = new Triangle(a, b, c);
+        assertThat(triangle.exist(6, 18, 11), is(false));
+    }
+
+    /**
+     * Test period.
+     */
+    @Test
+    public void whenSumSidesNegativeThenPerimeterNot() {
+        Point a = new Point(1, 1);
+        Point b = new Point(2, 1);
+        Point c = new Point(2, 1);
+        Triangle triangle = new Triangle(a, b, c);
+        assertThat(triangle.period(1, 2, -4), closeTo(-1.0, 0.1));
+    }
+
+    /**
+     * Test period.
+     */
+    @Test
+    public void whenSumSidesEqualsZeroThenPerimeterNot() {
+        Point a = new Point(1, 1);
+        Point b = new Point(2, 1);
+        Point c = new Point(2, 1);
+        Triangle triangle = new Triangle(a, b, c);
+        assertThat(triangle.period(1, 2, -3), closeTo(-1.0, 0.1));
+    }
+
+    /**
+     * Test period.
+     */
+    @Test
+    public void whenSumSidesPositive() {
+        Point a = new Point(1, 1);
+        Point b = new Point(2, 1);
+        Point c = new Point(2, 1);
+        Triangle triangle = new Triangle(a, b, c);
+        assertThat(triangle.period(1, 2, 3), closeTo(3.0, 0.1));
     }
 }
