@@ -36,7 +36,7 @@ public class Calculator {
      * @param second - второе число.
      */
     public void div(double first, double second) {
-        this.result = first / second;
+        this.result = (second == 0) ? -1.0 : first / second;
     }
 
     /**
