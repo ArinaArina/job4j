@@ -1,8 +1,7 @@
 package ru.job4j.calculator;
 
 import org.junit.Test;
-
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -20,7 +19,7 @@ public class CalculatorTest {
     public void whenAddOnePlusOneThenTwo()  {
         Calculator calc = new Calculator();
         calc.add(1D, 1D);
-        assertThat(calc.getResult(), is(2D));
+        assertThat(calc.getResult(), closeTo(2D, 0.1));
     }
 
     /**
@@ -30,7 +29,7 @@ public class CalculatorTest {
     public void whenSub2Minus1Then1()  {
         Calculator calc = new Calculator();
         calc.sub(2D, 1D);
-        assertThat(calc.getResult(), is(1D));
+        assertThat(calc.getResult(), closeTo(1D, 0.1));
     }
 
     /**
@@ -40,7 +39,7 @@ public class CalculatorTest {
     public void whenDivOneOnOneThenOne()  {
         Calculator calc = new Calculator();
         calc.div(1D, 1D);
-        assertThat(calc.getResult(), is(1D));
+        assertThat(calc.getResult(), closeTo(1D, 0.1));
     }
 
     /**
@@ -50,7 +49,7 @@ public class CalculatorTest {
     public void whenDivOneOnZero()  {
         Calculator calc = new Calculator();
         calc.div(1D, 0);
-        assertThat(calc.getResult(), is(-1.0));
+        assertThat(calc.getResult(), closeTo(-1.0, 0.1));
     }
 
     /**
@@ -59,7 +58,7 @@ public class CalculatorTest {
     @Test
     public void whenMultiple2On2Then4()  {
         Calculator calc = new Calculator();
-        calc.mult(2D, 2D);
-        assertThat(calc.getResult(), is(4D));
+        calc.multiple(2D, 2D);
+        assertThat(calc.getResult(), closeTo(4D, 0.1));
     }
 }
