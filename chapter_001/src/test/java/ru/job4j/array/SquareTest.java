@@ -18,7 +18,8 @@ public class SquareTest {
     @Test
     public void whenBound3Then149() {
         Square square = new Square();
-        assertThat(square.calculate(3), is(new int[] {1, 4, 9}));
+        int[] expect = new int[] {1, 4, 9};
+        assertThat(square.calculate(3), is(expect));
     }
 
     /**
@@ -27,6 +28,7 @@ public class SquareTest {
     @Test
     public void whenBound0Then0() {
         Square square = new Square();
-        assertThat(square.calculate(0), is(new int[] {}));
+        int[] expect = new int[] {};
+        assertThat(square.calculate(0), is(expect));
     }
 }
