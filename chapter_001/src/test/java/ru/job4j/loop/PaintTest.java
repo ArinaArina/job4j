@@ -15,6 +15,46 @@ import static org.hamcrest.Matchers.is;
  */
 public class PaintTest {
     /**
+     * Test leftTrl.
+     */
+    @Test
+    public void whenPyramid4Left() {
+        Paint paint = new Paint();
+        String rst = paint.leftTrl(4, 4);
+        System.out.println(rst);
+        assertThat(rst,
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("   ^")
+                                .add("  ^^")
+                                .add(" ^^^")
+                                .add("^^^^")
+                                .toString()
+                )
+        );
+    }
+
+    /**
+     * Test rightTrl.
+     */
+    @Test
+    public void whenPyramid4Right() {
+        Paint paint = new Paint();
+        String rst = paint.rightTrl(4, 4);
+        System.out.println(rst);
+        assertThat(rst,
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("^   ")
+                                .add("^^  ")
+                                .add("^^^ ")
+                                .add("^^^^")
+                                .toString()
+                )
+        );
+    }
+
+    /**
      * Test pyramid.
      */
     @Test
