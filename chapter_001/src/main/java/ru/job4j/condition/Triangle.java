@@ -63,9 +63,9 @@ public class Triangle {
      * @return площадь треугольника, если треугольник существует или -1, если треугольника нет.
      */
     public double area() {
-        double ab = this.a.distanceTo(b);
-        double ac = this.a.distanceTo(c);
-        double bc = this.b.distanceTo(c);
+        double ab = this.a.distance(b);
+        double ac = this.a.distance(c);
+        double bc = this.b.distance(c);
         double p = this.period(ab, ac, bc);
         return ((this.exist(ab, ac, bc)) ? (Math.sqrt(p * (p - ab) * (p - ac) * (p - bc))) : -1.0);
     }

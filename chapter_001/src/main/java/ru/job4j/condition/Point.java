@@ -1,5 +1,8 @@
 package ru.job4j.condition;
 
+import static java.lang.Math.sqrt;
+import static java.lang.Math.pow;
+
 /**
  * Class Point находит расстояние между точками в системе координат.
  * @author Arina Vakurova.
@@ -32,9 +35,16 @@ public class Point {
      * @param that - входящая точка.
      * @return расстояние между входящей и текущей точками.
      */
-    public double distanceTo(Point that) {
-        return  Math.sqrt(
-                Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2)
+    public double distance(Point that) {
+        return  sqrt(
+                pow(this.x - that.x, 2) + pow(this.y - that.y, 2)
         );
+    }
+
+    /**
+     * Выводит координаты точки.
+     */
+    public void info() {
+        System.out.println(String.format("Point[%s, %s]", this.x, this.y));
     }
 }
